@@ -10,7 +10,7 @@ import connectorx as cx
 db_path = '/home/user/path/test.db'                         # path to your SQLite database
 conn = 'sqlite://' + db_path                                # connection token
 query = 'SELECT * FROM `database.dataset.table`'            # query string
-cx.read_sql(conn, query)                                    # read data from BigQuery
+cx.read_sql(conn, query)                                    # read data from SQLite
 ```
 
 ### SQLite Type Mapping
@@ -23,7 +23,7 @@ cx.read_sql(conn, query)                                    # read data from Big
 | BLOB             | object                      | declared type that contains substring "blob" |
 | DATE             | datetime64[ns]              | declared type is "date"            |
 | TIME             | object                      | declared type is "time"            |
-| TIMESTAMP        | datetime64[ns]              | declared type is "datetime" or "timestamp" |
+| TIMESTAMP        | datetime64[ns]              | declared type is "datetime" or "timestamp", the format must follow `YYYY-MM-DD HH:MM:SS"/"YYYY-MM-DD HH:MM:SS.SSS`|
 
 ## Performance (r5.4xlarge EC2 same instance)
 
