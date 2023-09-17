@@ -8,6 +8,8 @@
 ## Postgres Connection
 ```{hint}
 Adding `sslmode=require` to connection uri parameter force SSL connection. Example: `postgresql://username:password@host:port/db?sslmode=require`. `sslmode=disable` to disable SSL connection.
+
+To connect to redshift, replace `postgresql://` with `redshift://`.
 ```
 
 ```py
@@ -27,7 +29,7 @@ cx.read_sql(conn, query)                                        # read data from
 | INT8            | int64, Int64(nullable)    |                                    |
 | FLOAT4          | float64                   |                                    |
 | FLOAT8          | float64                   |                                    |
-| NUMERIC         | float64                   |                                    |
+| NUMERIC         | float64                   | cannot support precision larger than 28                                    |
 | TEXT            | object                    |                                    |
 | BPCHAR          | object                    |                                    |
 | VARCHAR         | object                    |                                    |
